@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
     }
 
     uint32_t inst;
-    uint32_t pc = 0x00000000; // Starting PC, could be configurable later
+    uint32_t pc = 0xBFC00000; // Starting PC, could be configurable later
 
     while (fread(&inst, sizeof(uint32_t), 1, in) == 1) {
         // Handle endianness if necessary. Assuming input is Little Endian (PS2/MIPS)
