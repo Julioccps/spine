@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
 
     if (!to_terminal) {
         // Construct output filename: input_path + ".s"
-        snprintf(output_path, sizeof(output_path), "%s.s", input_path);
+        snprintf(output_path, sizeof(output_path), "%s.txt", input_path);
         out = fopen(output_path, "w");
         if (!out) {
             perror("Error opening output file");

@@ -18,7 +18,6 @@ const char* reg_names[32] = {"$zero", "$at", "$v0", "$v1", "$a0", "$a1", "$a2", 
 
 void disassemble(uint32_t inst, uint32_t pc, FILE *stream){
 	uint8_t opcode = GET_OPCODE(inst);
-	fprintf(stream, "[0x%08X] %08X -> ", pc, inst);
 
 	switch (opcode){
 		case 0x00:
@@ -160,6 +159,22 @@ void disassemble(uint32_t inst, uint32_t pc, FILE *stream){
 		case 0x0F:
 			fprintf(stream, "lui %s, 0x%X\n", reg_names[GET_RT(inst)], GET_IMM(inst));
 			break;
+		case 0X10:{
+			uint8_t rs = GET_RS(inst);
+			switch (rs){
+				case 0x00:
+					  fprintf(stream, "mfc0 %s, %d\n", reg_names[GET_RT(inst)], GET_RD(inst));
+					  break;
+				case 0x04:
+					  fprintf(stream, "mtc0 %s, %d\n", reg_names[GET_RT(inst)], GET_RD(inst));
+					  break;
+				default:
+					  fprintf(stream, "UNKNOWN COP0 (rs: %d)\n", rs);
+					  break;
+				}
+			}
+			break;
+
 		case 0x20:
 			fprintf(stream, "lb %s, %d(%s)\n", reg_names[GET_RT(inst)], GET_OFFSET(inst), reg_names[GET_RS(inst)]);
 			break;
