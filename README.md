@@ -7,7 +7,7 @@ Currently, the project is in its early stages, featuring a basic MIPS disassembl
 ## Features
 
 - **MIPS Disassembler:** Decodes binary files containing MIPS instructions and outputs assembly code.
-- **Output Options:** Supports writing to a `.s` file or printing directly to the terminal.
+- **Output Options:** Supports writing to a `.txt` file or printing directly to the terminal.
 
 ## Building
 

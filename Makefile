@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Isrc
 SRC = src/main.c src/core/decoder.c
 OBJ = $(SRC:.c=.o)
-TARGET = spine
+	TARGET = spine
 
 all: $(TARGET)
 
